@@ -1,0 +1,4 @@
+#!/bin/sh
+
+erl -boot http -http docroot '"."' flex_services '[test]' \
+    flex_auth '{test,my_auth_hook}'

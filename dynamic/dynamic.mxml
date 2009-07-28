@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+  <mx:Script source="dynamic.as" />
+  <mx:RemoteObject id="ro"
+		   source="{source.text}"
+		   destination="my-destination"
+		   showBusyCursor="true"
+		   result="resultHandler(event)"
+		   fault="faultHandler(event)">
+  </mx:RemoteObject>
+  <mx:Panel title="Dynamic Remoting Example"
+	    paddingLeft="10" paddingRight="10"
+	    paddingTop="10" paddingBottom="10">
+    <mx:Form>
+      <mx:FormItem label="Username">
+	<mx:TextInput id="user" />
+      </mx:FormItem>
+      <mx:FormItem label="Password">
+	<mx:TextInput id="passwd" />
+      </mx:FormItem>
+      <mx:HBox>
+	<mx:Button label="Set Remote Credentials"
+		   click="ro.setRemoteCredentials(user.text, passwd.text)" />
+	<mx:Button label="Set Credentials"
+		   click="ro.setCredentials(user.text, passwd.text)" />
+	<mx:Button label="logout" click="ro.logout()" />
+      </mx:HBox>
+    </mx:Form>
+    <mx:Form>
+      <mx:FormItem label="Source">
+	<mx:TextInput id="source" />
+      </mx:FormItem>
+      <mx:FormItem label="Method">
+	<mx:TextInput id="method" />
+      </mx:FormItem>
+      <mx:FormItem label="Result">
+	<mx:TextArea id="result" />
+      </mx:FormItem>
+    </mx:Form>
+    <mx:HBox>
+      <mx:Button label="Call" click="ro[method.text].send()" />
+      <mx:Button label="Disconnect" click="ro.disconnect()" />
+    </mx:HBox>
+  </mx:Panel>
+</mx:Application>

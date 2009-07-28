@@ -1,0 +1,3 @@
+#!/bin/sh
+
+erl -boot http -http docroot '"."' flex_services '[persons]'

@@ -1,0 +1,24 @@
+The following examples demonstrate Flex remoting with Erlang.
+The examples assume you have erlang-amf and erlang-http built and installed.
+You obviously must have Erlang and Flex SDK installed and in you PATH.
+
+# Download and install erlang-amf
+git clone git://github.com/mujaheed/erlang-amf.git
+cd erlang-amf
+./configure
+make
+[sudo] make install
+
+# Download and install erlan-http
+git clone git://github.com/mujaheed/erlang-http.git
+cd erlang-http
+./configure
+make
+[sudo] make install
+
+# Download flex-examples
+git clone git://github.com/mujaheed/flex-examples.git
+cd flex-examples/<example>
+make
+./start
+#point your browser to http://localhost:8080
