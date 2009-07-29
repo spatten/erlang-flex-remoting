@@ -16,7 +16,7 @@ cd erlang-http
 make
 [sudo] make install
 
-# Download erlagn-flex-remoting
+# Download erlang-flex-remoting
 git clone git://github.com/mujaheed/erlang-flex-remoting.git
 cd erlang-flex-remoting
 make run
