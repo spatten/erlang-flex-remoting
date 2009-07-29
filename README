@@ -17,7 +17,7 @@ make
 [sudo] make install
 
 # Download flex-examples
-git clone git://github.com/mujaheed/flex-examples.git
-cd flex-examples
+git clone git://github.com/mujaheed/erlang-flex-remoting.git
+cd erlang-flex-remoting
 make run
 #point your browser to http://localhost:8080
