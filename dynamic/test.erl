@@ -32,18 +32,26 @@ date() ->
     MilliSecs = (MegaSecs * 1000000 + Secs) * 1000 + MicroSecs / 1000,
     {date, MilliSecs, 0}.
 
+bytearray() ->
+    {bytearray, <<"THIS IS A BYTEARRAY">>}.
+
 array() ->
     [<<"AAPL">>,<<"CSCO">>,<<"MSFT">>,<<"YHOO">>,<<"JNPR">>].
 
 mixed_array() ->
-    [string(), double(), true(), false(), integer(), ?MODULE:date()].
+    [string(), double(), {<<"key1">>, 5}, true(), {<<"key3">>, object()},
+     false(), integer(), {<<"key2">>, <<"Value2">>}, ?MODULE:date()].
+
+assoc_array() ->
+    [{<<"key1">>, 1}, {<<"key2">>, <<"String">>}, {<<"key3">>, 12.23},
+     {<<"key4">>, 4}, {<<"key5">>, 5}].
 
 object() ->
-    #amf_object{
-	members = [{firstName, <<"Ruslan">>},
-		   {lastName, <<"Babayev">>},
-		   {age, 32}
-		  ]}.
+    {object, <<"Person">>,
+     [{firstName, <<"Ruslan">>},
+      {lastName, <<"Babayev">>},
+      {age, 32},
+      {<<"occupation">>, <<"Software Engineer">>}]}.
 
 %% @doc Returns true if credentials are valid and false otherwize.
 %%      Right, now http_mod_amf doesn't really care if you return true or false.
