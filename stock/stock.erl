@@ -18,4 +18,5 @@ quote(Symbol) ->
     % Fix Google JSON
     Fixed = subtract(subtract(binary_to_list(Body), "// [ "), "] "),
     {struct, Members} = mochijson2:decode(Fixed),
-    list_to_float(binary_to_list(proplists:get_value(<<"l_cur">>, Members))).
+    [$$|LCur] = binary_to_list(proplists:get_value(<<"l_cur">>, Members)),
+    list_to_float(LCur).
